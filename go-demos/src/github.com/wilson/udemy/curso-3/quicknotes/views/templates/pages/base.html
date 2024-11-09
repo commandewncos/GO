@@ -1,0 +1,20 @@
+{{ define "base" }}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/default.css">
+    <link rel="icon" type="image/x-icon" href="/static/image/favicon_io/favicon.ico">
+    <title>{{template "title" . }} | Quicknodes</title>
+</head>
+<body>
+    {{ template "header" .}}
+    
+    {{ template "main" .}}
+    
+    {{ template "footer" .}}
+    <script src="/static/javascript/default.js"></script>
+</body>
+</html>
+{{ end }}

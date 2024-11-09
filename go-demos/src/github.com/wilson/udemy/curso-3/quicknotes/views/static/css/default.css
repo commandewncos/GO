@@ -1,0 +1,48 @@
+@font-face{
+    font-family: "Amsterdam";
+    src: url("/static/assets/NewAmsterdam-Regular.ttf")
+        format("truetype");
+}
+
+:root{
+    --bg-color-body: black;
+    --default-font-family: Amsterdam;
+    color: whitesmoke;
+}
+
+
+
+body{
+    background-color: var(--bg-color-body);    
+    font-family: var(--default-font-family);
+}
+
+.text-logo{
+    text-align: center;
+}
+
+.nav-links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    
+    
+}
+.links {
+    text-decoration: none;
+    height: 25px;
+}
+a:visited{
+    color: white;
+}
+
+
+
+.container-footer{
+    text-align: center;
+    background-color: gray;
+
+}
+
