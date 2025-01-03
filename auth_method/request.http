@@ -1,0 +1,31 @@
+###Regiter
+POST http://localhost:3000/api/v1/register
+
+{
+    "name": "Wilson Nascimento Costa",
+    "age": 35,
+    "username": "darthvender",
+    "password": "anakin"
+
+}
+
+###Login
+POST http://localhost:3000/api/v1/login
+
+
+{"username": "darthvender", "password":"anakin"}
+
+
+###Protected
+POST http://localhost:3000/api/v1/protected
+X-CSRF-Token:  I-vSk7RHIy6MryemOrpXFG4zSdagUUe7gZHk1bPE1Dx8BbJCBTxYzQf2K7mmJplb6S6238O1Ae1_ZETeK-GvXv4Zm1sNur0DQYphMr5jvo8RFbenBuLdwsyY5xHFEX7q9ge1-EKcPEiPzr6ZbJB5CmjW6wvnGppCmgPNwjpR034=
+
+{"username": "darthvender"}
+
+
+###logout
+POST http://localhost:3000/api/v1/logout
+X-CSRF-Token:  I-vSk7RHIy6MryemOrpXFG4zSdagUUe7gZHk1bPE1Dx8BbJCBTxYzQf2K7mmJplb6S6238O1Ae1_ZETeK-GvXv4Zm1sNur0DQYphMr5jvo8RFbenBuLdwsyY5xHFEX7q9ge1-EKcPEiPzr6ZbJB5CmjW6wvnGppCmgPNwjpR034=
+
+{"username": "darthvender"}
+

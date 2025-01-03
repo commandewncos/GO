@@ -1,0 +1,182 @@
+# openapi: 3.0.1
+openapi: 3.1.0
+
+info:
+  title: Title
+  description: Description of API project
+  version: 0.0.1
+  termsOfService: http://172.30.12.36:8083
+  contact:
+    name: Name
+    email: name@example.com.br
+    url: http://172.30.12.36:8083/contact
+
+  license:
+    name: "License: GPLv3"
+    url: https:www.gnu.org/licenses/gpl-3.0.html
+
+externalDocs:
+  url: http://172.30.12.36:8083/documentation
+  description: Documentation description
+
+servers:
+  - url: http://172.30.12.36:8083/api/v1/
+    description: server name
+paths:
+  /names:
+    get:
+      summary: Get all names
+      tags:
+        - GET
+      responses:
+        200:
+          description: Sucess
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/struct"
+      
+    post:
+      summary: Insert data
+      responses:
+        400:
+          description: bad request
+          content:
+            application/json:
+              example: bad request
+        201:
+          description: Created Sucessfuly
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name: 
+                  type: string
+                age:
+                  type: integer
+    
+
+  /names/{id}:
+    parameters:
+      - name: id
+        in: path
+        schema:
+          type: integer
+        required: true
+    
+    get:
+      summary: Get by id
+      tags:
+        - GET
+      responses:
+        200:
+          description: Sucess
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/arrstruct"
+
+        404:
+          description: not found
+          content:
+            application/json:
+              example: not found by id
+    
+    delete:
+      summary: Delete by id
+      responses:
+        200:
+          description: Deleted Sucessfuly
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+    
+    patch:
+      summary: Update by id
+      responses:
+        400:
+          description: bad request
+          content:
+            application/json:
+              example: Error
+        200:
+          description: Update Sucessfuly
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name: 
+                  type: string
+                age:
+                  type: integer
+
+  /names/findby/{name}:
+    parameters:
+      - name: name
+        in: path
+        schema:
+          type: string
+        required: true
+    get:
+      summary: Get by name
+      tags:
+        - GET
+      responses:
+        200:
+          description: Sucess
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/struct"
+        404:
+          description: not found
+          content:
+            application/json:
+              example: not found
+
+
+
+# INCLUDE SECURITY IN ALL ENDPOINTS  
+security:
+ - AUTHORIZATION: []
+
+
+components:
+  schemas:
+    struct:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        age:
+          type: integer
+    
+    arrstruct:
+      type: array
+      items:
+        $ref: "#/components/schemas/struct"
+    
+
+
+  securitySchemes:
+    AUTHORIZATION:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      
+    
+

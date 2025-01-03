@@ -1,0 +1,43 @@
+<!-- TITLE -->
+{{define "title"}}
+    <h1 class="title">{{.Page}}</h1>
+{{end}}
+
+
+<!-- NAVBAR -->
+{{define "navbar"}}
+<ul class="navbar">
+    <li><a class="active" href="/">Home</a></li>
+    <li><a href="form">Form</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>
+</ul>
+{{end}}
+
+
+<!-- FOOTER -->
+{{define "footer"}}
+<footer class="footer">
+    <p>&copy; {{GetYear}} Todos os direitos reservados</p>
+</footer>
+{{end}}
+
+
+<!-- HOME -->
+{{define "content-home"}}
+<p>Welcome here!</p>
+{{end}}
+
+
+<!-- FORM -->
+{{define "content-form"}}
+<form action="/action_page.php">
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="John"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+</form>
+{{end}}
+
+

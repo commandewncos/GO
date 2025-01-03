@@ -1,0 +1,34 @@
+{{ define "create"}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+</head>
+<body>
+    <h1>Create</h1>
+    <hr>
+    <div>
+        
+        <form action="insert" method="post">
+            <label for="fname">fullname: </label>
+            <br>
+            <input type="text" name="fname" id="fname">
+            <br>
+            <label for="fage">age: </label>
+            <br>
+            <input type="number" name="fage" id="fage">
+            <br><br>
+            <input type="submit" value="Submit" min="1" max="120">
+
+        </form>
+    </div>
+    <hr>
+    <a href="/" target="_self">Home</a>
+</body>
+{{ template "footer" }}
+</html>
+
+{{ end }}

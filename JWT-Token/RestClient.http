@@ -1,0 +1,16 @@
+###
+
+GET http://localhost:8085/api/public
+
+###
+GET http://localhost:8085/api/secure
+X-Api-Token: eyjskavpolenmvssadgd
+
+###
+POST http://localhost:8085/api/auth
+Content-Type: application/json
+
+{
+    "username": "Wilson"
+    ,"password": "123456"
+}

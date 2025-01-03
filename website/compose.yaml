@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  database:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: "people"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "pasSword"
+      MYSQL_ROOT_PASSWORD: "pasSword"
+
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+
+    volumes:
+      - ./database:/var/lib/mysql
+      - ./scripts/main.sql:/docker-entrypoint-initdb.d/main.sql
+volumes:
+  source:
+    driver: local    

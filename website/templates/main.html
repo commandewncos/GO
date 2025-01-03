@@ -1,0 +1,60 @@
+
+<!-- Templete engine -->
+{{  define "main" }}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .btn{
+            border: 1px solid red; 
+            color :white; 
+            background-color: red; 
+            cursor: pointer;
+            padding: 3px;
+        }
+        .btn-2{
+            border: 1px solid green; 
+            color :white; 
+            background-color: green; 
+            cursor: pointer;
+            padding: 3px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <hr>
+    {{ range . }}
+        <p>Nome: {{ .Name }} - Idade: {{ .Age }}  - 
+            <a class="btn-2" href="/edit?id={{ .Id }}">edit</a>
+            <buttom class="btn" onclick="onDelete('{{ .Id }}')">delete</buttom>
+        </p>
+    {{ end }}
+    <hr>
+    <a  href="/create" target="_self" rel="noopener noreferrer">Create</a>
+</body>
+
+<script>
+
+    function onDelete(id){
+        let res = confirm("Desejesa realmente deletar esse registro?")
+        if (res == true){
+            window.location = `/delete?id=${id}`
+        }
+    
+    }
+
+</script>
+
+{{ template "footer"}}
+
+</html>
+
+{{ end }}
+<!-- End template -->

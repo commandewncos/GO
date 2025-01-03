@@ -1,0 +1,49 @@
+version: '2.27.0'
+services:
+  database:
+    image: mysql:9.1.0
+
+    environment:
+      MYSQL_DATABASE: "users"
+      MYSQL_USER: "application"
+      MYSQL_PASSWORD: "appPasSworD"
+      MYSQL_ROOT_PASSWORD: "rOOTappPasSworD"
+    
+
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+
+    volumes:
+      - ./database/mysql/:/var/lib/mysql
+ 
+
+  # swagger-editor:
+  #   image: swaggerapi/swagger-editor
+  #   container_name: "swagger-editor-container"
+  
+  #   expose:
+  #   - 8081
+  
+  #   ports:
+  #     - "8081:8080"
+
+  #   depends_on:
+  #     - database
+  
+  
+  # swagger-ui:
+  #   image: swaggerapi/swagger-ui
+  #   container_name: "swagger-ui-container"
+  #   expose:
+  #     - 8082
+  #   ports:
+  #   - "8082:8080"
+  #   volumes:
+  #   - ./swagger/openapi.yaml:/openapi.yaml
+  #   environment:
+  #     SWAGGER_JSON: /openapi.yaml
+    
+  #   depends_on:
+  #     - database
